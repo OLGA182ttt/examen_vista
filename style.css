@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh; /* Asegura que el body ocupe toda la pantalla */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+}
+
+img {
+    width: auto;   /* Ajusta el ancho de la imagen automáticamente */
+    height: 100%;  /* La imagen ocupará toda la altura disponible */
+    object-fit: contain; /* Mantiene la imagen completa sin distorsionarla */
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    right: -150px; /* Empuja los botones fuera de la pantalla */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: right 0.2s ease-in-out; /* Transición rápida para los botones */
+}
+
+.button {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    color: #f39c12;  /* Contorno naranja */
+    background-color: #000; /* Fondo negro */
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    border: 2px solid #f39c12; /* Contorno naranja */
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.button:hover {
+    background-color: #f39c12; /* Fondo naranja al pasar el mouse */
+    color: #000; /* Cambia el texto a negro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    background-color: #d35400;
+    transform: scale(0.95);
+}
+
+body:hover .buttons {
+    right: 0; /* Muestra los botones cuando el mouse está cerca del lado derecho */
+}
+
+body:not(:hover) .buttons {
+    right: -150px; /* Vuelve a ocultar los botones cuando el mouse no está cerca del borde derecho */
+}
+
